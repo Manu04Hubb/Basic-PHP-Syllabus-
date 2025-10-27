@@ -1,0 +1,67 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(159, 192, 192);
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 200px;
+}
+h1{
+    text-align: center;
+}
+.student{
+    border: none;
+    border-radius: 14px;
+    padding: 10px;
+    background-color: gainsboro;
+    width: auto;
+    height: auto;
+}
+#studentForm{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px;
+}
+#studentName,#subjectChosen,#studentMark{
+    width: 100%;
+    height: auto;
+    border: none;
+    border-radius: 14px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#buttons{
+    display: flex;
+    flex-direction: row;
+}
+#addStudentBtn{
+    height: auto;
+    border: none;
+    border-radius: 14px;
+    padding: 10px;
+    margin-right: 20px;
+    background-color: burlywood;
+}
+#submitStudentBtn{
+    height: auto;
+    border: none;
+    border-radius: 14px;
+    padding: 10px;
+    margin-left: 20px;
+    background-color: gray;
+}
+#submitStudentBtn:hover{
+    cursor: pointer;
+    background-color: darkslategrey;
+    color: #fff;
+}
+
+#addStudentBtn:hover{
+    cursor: pointer;
+    background-color: chocolate;
+}

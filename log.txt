@@ -1,0 +1,8 @@
+Manuel
+Vanja
+Garcia
+Traford
+Baro
+Doe
+Smith
+New line added with file_put_contents
