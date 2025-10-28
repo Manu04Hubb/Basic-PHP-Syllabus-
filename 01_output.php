@@ -2,7 +2,23 @@
 <?php // This is a php tag. If there is no html or other content below the php, we don't need to close the php tag.
 
 /* ------- Outputting Content ------- */
-
+//Somepasword hashing algorithms use salt to enhance security
+$password = "mySuperSecurePassword123";
+$options = ['cost' =>12]; //cost is the computational cost
+$hashed_password = password_hash($password, PASSWORD_DEFAULT, $options);
+echo "Hashed Password: " . $hashed_password;
+echo "<br>";
+echo "plaintext password: " . $password;
+echo "<br>";
+echo "<br>";
+// Verifying the password
+if (password_verify($password, $hashed_password)) { 
+    echo "Password is valid!";
+} else {
+    echo "Invalid password.";
+}
+echo "<br>";
+echo "<br>";
 // Echo - Output strings, numbers, html, etc
 echo 'Hello World';
 echo "<br>";
