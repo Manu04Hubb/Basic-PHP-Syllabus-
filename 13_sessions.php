@@ -18,8 +18,44 @@ print_r($_SESSION);
 echo "</pre>";
 echo $_SESSION['username'];
 echo "<br>";
-//To end asession
+//To end asession delete all data
 session_unset();
+//To destroy all sessions registered
+session_destroy();
+//To delete single data
+session_unset($_SESSION['username']);
+
+/*
+ --Session Security
+ --This ensures that other users and other computers are unable to steal our session data
+ --This ensures session id security
+ --Common session vulnerability is Session id Sniffing or session id prediction or session fixation or xss
+ --Dont store sensitive user info in a session id
+
+*/
+ini_set('session.use_only_cookies',1);
+ini_set('session.use_strict_mode',1);
+session_set_cookie_params([
+  'lifetime'=> 1800,//time after which a cookie expires
+  'domain'=> 'localhost',
+  'path'=> '/',
+  'secure'=> true,
+  'httponly'=> true
+]);
+//Set above info before a session starts
+session_start();
+//This regenerates a session every 30 min
+if (isset($_SESSION['last_regeneration'])) {
+  session_regenerate_id(true);
+  $_SESSION['last_regeneration'] = time();
+} else {
+  $interval = 60 * 30;
+  if (time() - $_SESSION['last_regeneration'] >= $interval) {
+    session_regenerate_id(true);
+    $_SESSION['last_regeneration'] = time();
+  }
+}
+
 
 if (isset($_POST['submit'])) {
   $username = filter_input(
