@@ -18,21 +18,31 @@
 
 var_dump($GLOBALS);
 echo "<br>";
+echo "<br>";
 var_dump($_SERVER);
+echo "<br>";
 echo "<br>";
 var_dump($_GET);
 echo "<br>";
+echo "<br>";
 var_dump($_POST);
+echo "<br>";
 echo "<br>";
 var_dump($_COOKIE);
 echo "<br>";
+echo "<br>";
 var_dump($_SESSION);
+echo "<br>";
 echo "<br>";
 var_dump($_ENV);
 echo "<br>";
+echo "<br>";
 var_dump($_FILES);
 echo "<br>";
-//var_dump($_REQUEST);
+echo "<br>";
+var_dump($_REQUEST);
+echo "<br>";
+echo "<br>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +62,7 @@ echo "<br>";
         <li>Server Port: <?php echo $_SERVER['SERVER_PORT']; ?></li>
         <li>Current File Dir: <?php echo $_SERVER['PHP_SELF']; ?></li>
         <li>Request URI: <?php echo $_SERVER['REQUEST_URI']; ?></li>
+        <li>Request Method: <?php echo $_SERVER['REQUEST_METHOD']; ?></li>
         <li>Server Software: <?php echo $_SERVER['SERVER_SOFTWARE']; ?></li>
         <li>Client Info: <?php echo $_SERVER['HTTP_USER_AGENT']; ?></li>
         <li>Remote Address: <?php echo $_SERVER['REMOTE_ADDR']; ?></li>
