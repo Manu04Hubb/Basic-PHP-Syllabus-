@@ -10,6 +10,16 @@
 */
 
 session_start(); // Must be called before accessing any session data
+echo "Session status: " . session_status() . "<br>";      // 2 = PHP_SESSION_ACTIVE
+echo "Session ID: " . session_id() . "<br>";
+echo "Session save path: " . session_save_path() . "<br>";
+echo "<pre>SESSION:\n";
+print_r($_SESSION);
+echo "</pre>";
+echo $_SESSION['username'];
+echo "<br>";
+//To end asession
+session_unset();
 
 if (isset($_POST['submit'])) {
   $username = filter_input(
