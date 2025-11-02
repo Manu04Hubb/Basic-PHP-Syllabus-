@@ -136,17 +136,21 @@ instantiation is the process of creating an object from a class.
   We create an object from a class using the new keyword followed by the class name and parentheses.
 */
 $user1 = new User('Manu', 'Manu@gmail.com', '123456');
+$user2 = new User('MLS', 'mls@gmail.com', 'm123456#');
+$user3 = new User('Mason', 'mason@gmail.com', 'mase1234');
+$user4 = new User('JPM', 'jpm@gmail.com', 'jp12345');
+
 echo "<br>";
 echo $user1->getName();
 echo "<br>";
 echo $user1->login();
 
 // Add a value to a property
-// $user1->name = 'Brad';
+// $user1->name = 'manu';
 echo "<br>";
 var_dump($user1);
 // echo $user1->name;
-
+echo '<br>';
 $user2 = new User('Tervernier','terver@gmail.com','654321');
 echo "<br>";
 echo $user2->getName();
