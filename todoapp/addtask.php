@@ -1,16 +1,13 @@
 <?php
-include 'to-dodb.php';
+include_once 'to-dodb.php';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $task = $_POST['task_name'];
+    $status = $_POST['status'];
     // Prepare and bind
-// (?) means a placeholder for a parameter that will be bound later
-// "s" means the parameter is a string
-// "i" means the parameter is an integer
-// "d" means the parameter is a double
-
-    $sql = "INSERT INTO tasks (task_name) VALUES (?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $task);
+    $add_query = "INSERT INTO todo_app (task_name,status) VALUES (:task,:status);";
+    $stmt = $pdo->prepare($add_query);
+    $stmt->bindParam(":task", $task);
+    $stmt->bindParam(":status",$status);
     $stmt->execute();
 }
 

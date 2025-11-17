@@ -2,17 +2,22 @@
 <?php include 'to-dodb.php';?>
 <!-- Add Task Form -->
  <br>
- <br>
 <form method="POST" action="addtask.php">
+    <label for="taskname">Task name:</label>
     <input type="text" name="task_name" placeholder="Enter new task" required>
+    <br>
+    <label for="status">Status</label>
+    <select name="status" >
+        <option value="complete">complete</option>
+        <option value="incomplete">incomplete</option>
+        <option value="inprogress">inprogress</option>
+    </select>
     <button type="submit">Add Task</button>
 </form>
 
 <h2>Tasks</h2>
 <ul>
 <?php
-// $conn is the connection object created in to-dodb.php
-// query() method is used to execute a SQL query
     $result = $conn->query("SELECT * FROM tasks ORDER BY created_at DESC");
     while ($row = $result->fetch_assoc()) {
     echo "<li>";

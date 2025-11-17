@@ -1,24 +1,19 @@
 <?php
 $host = "localhost";
-$user = "root";
+$username = "root";
 $password = "";
-$dbname = "todo_app";
+$dbname = "todoapp";
 // Create connection
-$conn = new mysqli($host, $user, $password, $dbname);
-// -> This is an object operator.Often used with classes and objects
-// It is used to access methods and properties of an object.
-// Here, it is used to access the connect_error property of the $conn object.
-// connect_error property returns the error description from the last connection error, if any.
+$pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}else {
-    echo "Connected successfully!";
+try{
+   $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+   echo "Connected to todo database successfully!";
+}catch(PDOException $e){
+  echo "Erro : " . $e->getMessage();
 }
 echo "<br>";
-//$conn is an object of the mysqli class
-// new mysqli() is a constructor that creates a new instance of the mysqli class
-// It takes four parameters: host, user, password, and dbname
+
 //print_r() function is used to print human-readable information about a variable
-print_r($conn);
 echo "<br>";
