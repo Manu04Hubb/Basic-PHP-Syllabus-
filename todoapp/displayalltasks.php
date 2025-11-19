@@ -45,16 +45,16 @@ $stmt->execute();
                 <td><?= htmlspecialchars($task['status']) ?></td>
                 <td><?= htmlspecialchars($task['created_at']) ?></td>
                 <td>
-                    <form action="delete_task.php" method="POST">
-                        <input type="hidden" name="actions" value="delete_task">
+                    <form action="deletetask.php" method="POST" onsubmit="return confirm('Sure you want to delete this task!')">
+                        <input type="hidden" name="action" value="delete_task">
                         <input type="hidden" name="id" value="<?= htmlspecialchars($task['id']) ?>">
                         <button type="submit">Delete Task</button>
                     </form>
 
-                     <form action="update_task.php" method="POST">
-                        <input type="hidden" name="actions" value="update_task">
+                     <form action="updatetask.php" method="POST">
+                        <input type="hidden" name="action" value="update_task">
                         <input type="hidden" name="id" value="<?= htmlspecialchars($task['id']) ?>">
-                        <button type="submit">Delete Task</button>
+                        <button type="submit">Edit Task</button>
                     </form>
                 </td>
             </tr>
