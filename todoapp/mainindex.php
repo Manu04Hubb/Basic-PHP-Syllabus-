@@ -1,5 +1,4 @@
 <?php include 'header.php';?>
-<?php include 'to-dodb.php';?>
 <!-- Add Task Form -->
  <br>
 <form method="POST" action="addtask.php">
@@ -14,23 +13,7 @@
     </select>
     <button type="submit">Add Task</button>
 </form>
-
-<h2>Tasks</h2>
-<ul>
-<?php
-    $result = $conn->query("SELECT * FROM tasks ORDER BY created_at DESC");
-    while ($row = $result->fetch_assoc()) {
-    echo "<li>";
-    echo htmlspecialchars($row['task_name']) . " - " . $row['status'];
-
-    if ($row['status'] === 'pending') {
-        echo " <a href='updatetask.php?id=" . $row['id'] . "'> Mark Complete</a>";
-    }
-    echo " <a href='deletetask.php?id=" . $row['id'] . "'> Delete</a>";
-    echo "</li>";
-    }
-?>
-</ul>
+ <a href="displayalltasks.php"><button>See Tasks</button></a>
 <?php include 'footer.php';?>
 
 
